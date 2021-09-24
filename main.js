@@ -20,14 +20,14 @@ function take_snapshot(){
 
 console.log('ml5 version:',ml5.version);
 
-clasifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/74yd5AJc4/model.json',modelLoaded) ;
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/74yd5AJc4/model.json',modelLoaded) ;
 
 function modelLoaded(){
     console.log('model Loaded!')
 }
 
 function check(){
-    img.document.getElementById('captured_image');
+    img = document.getElementById('captured_image');
     classifier.classify(img, gotResult);
 
 }
@@ -35,8 +35,7 @@ function check(){
 function gotResult(error,results) {
   if (error) {
      console.error(error)   
-  }
-  else {
+  } else {
       console.log(results);
       document.getElementById("result_emotion_name").innerHTML = results[0].label; 
       document.getElementById("result_emotion_name2").innerHTML = results[1].label; 
